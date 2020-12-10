@@ -1,11 +1,7 @@
 <template>
   <a-layout-sider theme="light">
     <div class="text-right">
-      <a-button
-        type="link"
-        @click="toggleCollapsed"
-        style="margin-bottom: 16px"
-      >
+      <a-button type="link" @click="toggleCollapsed">
         <MenuUnfoldOutlined v-if="collapsed" />
         <MenuFoldOutlined v-else />
       </a-button>
@@ -111,7 +107,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .ant-layout-sider {
   // border-right: 1px solid #eee;
-  background-color: #eee;
+  background-color: #ffffff;
   height: calc(100vh - 60px);
   overflow-y: auto;
 

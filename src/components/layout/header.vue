@@ -1,7 +1,10 @@
 <template>
   <a-layout-header>
     <div class="logo">
-      <router-link to="/">LOGO</router-link>
+      <router-link to="/">
+        <img src="@/assets/icon.png" width="50" alt="" />
+        LOGO
+      </router-link>
     </div>
     <a-menu theme="light" mode="horizontal">
       <a-menu-item key="0">
@@ -58,6 +61,7 @@ export default defineComponent({
   top: 0;
   left: 0;
   right: 0;
+  box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.1);
   .logo {
     display: inline-block;
   }
