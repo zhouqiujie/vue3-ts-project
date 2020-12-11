@@ -1,17 +1,18 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 import { HomeRoutes } from './home'
-import Home from "../views/home.vue";
 import Index from '../views/index.vue';
-import { NotFound, IndexPage, AboutPage } from '../views/public';
+import { NotFound, IndexPage, AboutPage, RedirectPage } from '../views/public';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    name: 'index',
     component: Index,
     children: [
       {
         path: '',
+        name: 'indexPage',
         component: IndexPage
       },
       {
@@ -19,6 +20,10 @@ const routes: Array<RouteRecordRaw> = [
         component: AboutPage
       }
     ]
+  },
+  {
+    path: '/redirect',
+    component: RedirectPage
   },
   {
     path: '/:catchAll(.*)',

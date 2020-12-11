@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid text-left pt-3 pl-4">
     <a-list item-layout="horizontal" :data-source="data">
       <template #renderItem="{ item, index }">
         <a-list-item>

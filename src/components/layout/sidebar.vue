@@ -106,7 +106,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .ant-layout-sider {
-  // border-right: 1px solid #eee;
+  border-right: 1px solid #eee;
   background-color: #ffffff;
   height: calc(100vh - 60px);
   overflow-y: auto;

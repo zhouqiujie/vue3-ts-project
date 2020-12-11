@@ -21,31 +21,56 @@
       </a-menu-item>
       <!-- <a-menu-item key="4"> NAV4 </a-menu-item> -->
     </a-menu>
-    <span>
-      {{ d.VUE_APP_APP_ID }}
-      {{ userInfo.name }}
-    </span>
+    <div class="ml-auto">
+      <a-button type="link" @click="login()" v-if="!isLogin">登录</a-button>
+      <span v-if="isLogin">
+        <UserOutlined />
+
+        <small class="ml-1">
+          {{ userInfo.userName }}
+        </small>
+      </span>
+
+      <a-button type="link" v-if="isLogin" @click="logout()">退出</a-button>
+    </div>
   </a-layout-header>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import {
+  MSALObjLogin,
+  GetLogAccount,
+  MSALObjLogout
+} from "@/auth/authInstance";
+import { UserOutlined } from "@ant-design/icons-vue";
 export default defineComponent({
   name: "SiteHeader",
-  components: {},
+  components: { UserOutlined },
   props: {},
   data() {
     return {
-      d: {},
+      isLogin: false,
       userInfo: {
-        name: "testuser",
-      },
+        userName: ""
+      }
     };
   },
   mounted() {
-    this.d = process.env;
-    console.log(process.env);
+    const user = GetLogAccount();
+    if (user.userName) {
+      this.isLogin = true;
+    }
+    this.userInfo = user;
   },
+  methods: {
+    login() {
+      MSALObjLogin();
+    },
+    logout() {
+      MSALObjLogout();
+    }
+  }
 });
 </script>
 
@@ -62,11 +87,8 @@ export default defineComponent({
   left: 0;
   right: 0;
   box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.1);
-  .logo {
-    display: inline-block;
-  }
+  display: flex;
   .ant-menu {
-    display: inline-block;
     margin: 0 0 0 50px;
     line-height: 56px;
   }

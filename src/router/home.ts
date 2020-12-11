@@ -14,6 +14,14 @@ const routes: Array<RouteRecordRaw> = [
     path: "/home",
     name: "Home",
     component: Home,
+    beforeEnter: (to, from, next) => {
+     /*  if (false) {
+        next({ path: '/' })
+      } else {
+        next()
+      } */
+      next()
+    },
     children: [
       {
         path: 'a1',
@@ -37,7 +45,7 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'users',
-        component: UsersPage       
+        component: UsersPage
       },
       {
         path: 'users/:id',
