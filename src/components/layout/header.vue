@@ -41,7 +41,7 @@ import { defineComponent } from "vue";
 import {
   MSALObjLogin,
   GetLogAccount,
-  MSALObjLogout
+  MSALObjLogout,
 } from "@/auth/authInstance";
 import { UserOutlined } from "@ant-design/icons-vue";
 export default defineComponent({
@@ -50,18 +50,26 @@ export default defineComponent({
   props: {},
   data() {
     return {
-      isLogin: false,
+      /*  isLogin: false,
       userInfo: {
-        userName: ""
-      }
+        userName: "",
+      }, */
     };
   },
+  computed: {
+    isLogin() {
+      return this.$store.state.user.isLogin;
+    },
+    userInfo() {
+      return this.$store.state.user.detail;
+    }
+  },
   mounted() {
-    const user = GetLogAccount();
+    /*  const user = GetLogAccount();
     if (user.userName) {
       this.isLogin = true;
     }
-    this.userInfo = user;
+    this.userInfo = user; */
   },
   methods: {
     login() {
@@ -69,8 +77,8 @@ export default defineComponent({
     },
     logout() {
       MSALObjLogout();
-    }
-  }
+    },
+  },
 });
 </script>
 

@@ -9,18 +9,21 @@ import ModuleD1 from '../views/moduleD/d1.vue';
 
 // import NotFound from '../views/public/404.vue';
 
+import store from '@/store';
+
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/home",
     name: "Home",
     component: Home,
     beforeEnter: (to, from, next) => {
-     /*  if (false) {
-        next({ path: '/' })
+      if (!store.state.user.isLogin) {
+        next({ path: '/login' })
       } else {
         next()
-      } */
-      next()
+      }
+      // next()
     },
     children: [
       {

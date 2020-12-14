@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 import { HomeRoutes } from './home'
 import Index from '../views/index.vue';
-import { NotFound, IndexPage, AboutPage, RedirectPage } from '../views/public';
+import { NotFound, IndexPage, AboutPage, RedirectPage, LoginPage } from '../views/public';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -24,6 +24,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/redirect',
     component: RedirectPage
+  },
+  {
+    path: '/login',
+    component: LoginPage
   },
   {
     path: '/:catchAll(.*)',

@@ -85,7 +85,7 @@ export default defineComponent({
   data() {
     return {
       collapsed: false,
-      selectedKeys: ["1"],
+      // selectedKeys: ["1"],
       openKeys: ["sub1"],
       preOpenKeys: ["sub1"],
     };
@@ -118,6 +118,12 @@ export default defineComponent({
   .ant-menu {
     background-color: transparent;
     text-align: left;
+    a {
+      color: #666;
+      &:hover {
+        color: #1890ff;
+      }
+    }
   }
   .ant-menu-submenu > .ant-menu {
     background-color: transparent !important;

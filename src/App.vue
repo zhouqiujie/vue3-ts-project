@@ -1,11 +1,29 @@
 <template>
-  <!-- <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <div id="section">2</div> -->
   <router-view />
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapMutations } from "vuex";
+import { GetLogAccount } from "./auth/authInstance";
+import store from "./store";
+export default defineComponent({
+  mounted() {
+    const user = GetLogAccount();
+    if (user) {
+      this.login(user);
+    }
+
+    setTimeout(() => {
+      console.log(store.state.user, this.$store.state.user);
+      console.log(process.env)
+    }, 1);
+  },
+  methods: {
+    ...mapMutations(["login"]),
+  },
+});
+</script>
 
 <style lang="scss">
 @import "@/styles/_variables.scss";
